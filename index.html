@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JJota Instalações | Segurança Eletrônica e Elétrica em Curitiba</title>
+  <meta name="description" content="Instalação e manutenção de CFTV, alarmes, cercas elétricas e serviços elétricos em Curitiba e Região Metropolitana. Proteja seu patrimônio com quem entende.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'security-blue': '#0ea5e9',
+            'security-cyan': '#06b6d4',
+            'dark-slate': '#0f172a',
+            'card-slate': '#1e293b',
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'fade-in': 'fadeIn 0.6s ease-out forwards',
+            'slide-in-left': 'slideInLeft 0.8s ease-out forwards',
+            'slide-in-right': 'slideInRight 0.8s ease-out forwards',
+            'scale-in': 'scaleIn 0.5s ease-out forwards',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 3s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideInLeft: {
+              '0%': { opacity: '0', transform: 'translateX(-50px)' },
+              '100%': { opacity: '1', transform: 'translateX(0)' },
+            },
+            slideInRight: {
+              '0%': { opacity: '0', transform: 'translateX(50px)' },
+              '100%': { opacity: '1', transform: 'translateX(0)' },
+            },
+            scaleIn: {
+              '0%': { opacity: '0', transform: 'scale(0.9)' },
+              '100%': { opacity: '1', transform: 'scale(1)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+  
+  <style>
+    * {
+      scroll-behavior: smooth;
+    }
+    
+    html, body {
+      overflow-x: hidden;
+    }
+    
+    /* Estado inicial para animações com Intersection Observer */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.8s ease-out;
+    }
+    
+    .reveal-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s ease-out;
+    }
+    
+    .reveal-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 0.6s ease-out;
+    }
+    
+    .reveal-scale.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-white font-sans antialiased">
+  
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-slate-900/80 backdrop-blur-md border-b border-white/5">
+    <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+        
+        <a href="#" class="flex items-center gap-3 group">
+          <img src="img/logo.jpg" alt="Logo JJota Instalações" class="h-10 lg:h-12 w-auto rounded-lg group-hover:scale-105 transition-transform duration-300 shadow-md">
+          <div class="flex flex-col">
+            <span class="text-lg lg:text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              JJota Instalações
+            </span>
+            <span class="text-[10px] text-slate-400 -mt-1 tracking-wider">SEGURANÇA ELETRÔNICA</span>
+          </div>
+        </a>
+        
+        <nav class="hidden lg:flex items-center gap-8">
+          <a href="#inicio" class="text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-300 font-medium">Início</a>
+          <a href="#servicos" class="text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-300 font-medium">Serviços</a>
+          <a href="#portfolio" class="text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-300 font-medium">Obras</a>
+          <a href="#diferenciais" class="text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-300 font-medium">Diferenciais</a>
+          <a href="#contato" class="text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-300 font-medium">Contato</a>
+        </nav>
+        
+        <a href="https://wa.me/5541996570651" target="_blank" rel="noopener noreferrer" class="hidden lg:flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-green-500 rounded-full font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/30">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Orçamento</span>
+        </a>
+        
+        <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-300 hover:text-white transition-colors">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div id="mobile-menu" class="lg:hidden hidden bg-slate-900/95 backdrop-blur-xl border-t border-white/5">
+      <div class="px-4 py-6 space-y-4">
+        <a href="#inicio" class="block text-slate-300 hover:text-cyan-400 transition-colors py-2 font-medium">Início</a>
+        <a href="#servicos" class="block text-slate-300 hover:text-cyan-400 transition-colors py-2 font-medium">Serviços</a>
+        <a href="#portfolio" class="block text-slate-300 hover:text-cyan-400 transition-colors py-2 font-medium">Obras</a>
+        <a href="#diferenciais" class="block text-slate-300 hover:text-cyan-400 transition-colors py-2 font-medium">Diferenciais</a>
+        <a href="#contato" class="block text-slate-300 hover:text-cyan-400 transition-colors py-2 font-medium">Contato</a>
+        <a href="https://wa.me/5541996570651" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full px-5 py-3 bg-gradient-to-r from-green-500 to-green-600 rounded-full font-semibold text-sm mt-4">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Falar no WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section id="inicio" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+    
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1920&q=80" alt="Câmera de segurança" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-slate-900/90 to-slate-950/95"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-600/10"></div>
+    </div>
+    
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl"></div>
+    
+    <div class="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+      <div class="max-w-5xl mx-auto text-center">
+        
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 mb-6 animate-fade-in">
+          <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+          <span class="text-xs sm:text-sm text-slate-300 font-medium">Atendimento em Curitiba e Região Metropolitana</span>
+        </div>
+        
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+          <span class="block text-white animate-fade-in-up" style="animation-delay: 0.1s;">A Confiança</span>
+          <span class="block bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent animate-fade-in-up" style="animation-delay: 0.2s;">Antes da Câmera</span>
+        </h1>
+        
+        <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10 animate-fade-in-up" style="animation-delay: 0.3s;">
+          Proteja o que é seu com tecnologia de ponta. Especialistas em <span class="text-cyan-400 font-semibold">CFTV</span>, 
+          <span class="text-cyan-400 font-semibold">Alarmes</span> e <span class="text-cyan-400 font-semibold">Elétrica</span> 
+          residencial e comercial em Curitiba.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.4s;">
+          
+          <a href="https://wa.me/5541996570651" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/30 w-full sm:w-auto justify-center">
+            <i data-lucide="message-circle" class="w-5 h-5 group-hover:animate-bounce"></i>
+            <span>Solicitar Orçamento</span>
+          </a>
+          
+          <a href="#servicos" class="group flex items-center gap-3 px-8 py-4 bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/20 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 w-full sm:w-auto justify-center">
+            <span>Conhecer Serviços</span>
+            <i data-lucide="arrow-down" class="w-5 h-5 group-hover:translate-y-1 transition-transform"></i>
+          </a>
+        </div>
+        
+        <div class="grid grid-cols-3 gap-4 sm:gap-8 mt-16 max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 0.5s;">
+          <div class="text-center p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
+            <div class="text-2xl sm:text-3xl font-bold text-cyan-400">+500</div>
+            <div class="text-xs sm:text-sm text-slate-400 mt-1">Instalações</div>
+          </div>
+          <div class="text-center p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
+            <div class="text-2xl sm:text-3xl font-bold text-cyan-400">100%</div>
+            <div class="text-xs sm:text-sm text-slate-400 mt-1">Satisfação</div>
+          </div>
+          <div class="text-center p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
+            <div class="text-2xl sm:text-3xl font-bold text-cyan-400">15+</div>
+            <div class="text-xs sm:text-sm text-slate-400 mt-1">Anos Exp.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <i data-lucide="chevron-down" class="w-6 h-6 text-slate-400"></i>
+    </div>
+  </section>
+
+  <section id="servicos" class="relative py-20 lg:py-32 bg-slate-950">
+    <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+        <span class="inline-block px-4 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-semibold mb-4">
+          NOSSOS SERVIÇOS
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+          Soluções Completas em <span class="text-cyan-400">Segurança</span>
+        </h2>
+        <p class="text-slate-400 text-lg">
+          Oferecemos tecnologia de ponta para proteger seu patrimônio com instalações profissionais e suporte técnico especializado.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+        
+        <div class="group relative p-6 lg:p-8 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 hover:border-cyan-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 reveal-scale">
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-500/5 to-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative">
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <i data-lucide="video" class="w-7 h-7 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Câmeras de Segurança</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Instalação de CFTV com câmeras HD e 4K, visão noturna, acesso remoto via aplicativo. Monitore seu imóvel de qualquer lugar.
+            </p>
+            <ul class="mt-4 space-y-2">
+              <li class="flex items-center gap-2 text-sm text-slate-300">
+                <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
+                <span>Câmeras IP e Analógicas</span>
+              </li>
+              <li class="flex items-center gap-2 text-sm text-slate-300">
+                <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
+                <span>Acesso via Celular</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="group relative p-6 lg:p-8 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 hover:border-cyan-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 reveal-scale" style="transition-delay: 0.1s;">
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-500/5 to-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative">
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <i data-lucide="bell-ring" class="w-7 h-7 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Alarmes e Cercas</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Sistemas de alarme inteligente com sensores de presença, cerca elétrica industrial e residencial de alta performance.
+            </p>
+            <ul class="mt-4 space-y-2">
+              <li class="flex items-center gap-2 text-sm text-slate-300">
+                <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
+                <span>Monitoramento 24h</span>
+              </li>
+              <li class="flex items-center gap-2 text-sm text-slate-300">
+                <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
+                <span>Cerca Elétrica Segura</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="group relative p-6 lg:p-8 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 hover:border-cyan-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 reveal-scale" style="transition-delay: 0.2s;">
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-500/5 to-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative">
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <i data-lucide="fingerprint" class="w-7 h-7 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Controle de Acesso</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Sistemas de biometria, cartões de proximidade e interfones inteligentes para controle total de entradas e saídas.
+            </p>
+            <ul class="mt-4 space-y-2">
+              <li class="flex items-center gap-2 text-sm text-slate-300">
+                <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
+                <span>Leitores Biométricos</span>
+              </li>
+              <li class="flex items-center gap-2 text-sm text-slate-300">
+                <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
+                <span>Interfones e Porteiros</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="group relative p-6 lg:p-8 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 hover:border-cyan-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 reveal-scale">
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-500/5 to-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative">
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <i data-lucide="network" class="w-7 h-7 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Cabeamento Estruturado</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Instalação organizada de redes de internet, cabeamento CAT6 e fibra óptica para residências e empresas.
+            </p>
+            <ul class="mt-4 space-y-2">
+              <li class="flex items-center gap-2 text-sm text-slate-300">
+                <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
+                <span>Redes CAT6/CAT6A</span>
+              </li>
+              <li class="flex items-center gap-2 text-sm text-slate-300">
+                <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
+                <span>Rack e Organização</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="group relative p-6 lg:p-8 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 hover:border-cyan-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 reveal-scale" style="transition-delay: 0.1s;">
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-500/5 to-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative">
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <i data-lucide="antenna" class="w-7 h-7 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Antenas Digitais</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Instalação e apontamento de antenas digitais UHF para sinal de TV aberta em alta definição sem mensalidades.
+            </p>
+            <ul class="mt-4 space-y-2">
+              <li class="flex items-center gap-2 text-sm text-slate-300">
+                <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
+                <span>Antenas UHF 4K</span>
+              </li>
+              <li class="flex items-center gap-2 text-sm text-slate-300">
+                <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
+                <span>Apontamento Preciso</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="group relative p-6 lg:p-8 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 hover:border-cyan-500/50 transition-all duration-500 hover:transform hover:-translate-y-2 reveal-scale" style="transition-delay: 0.2s;">
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-500/5 to-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative">
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <i data-lucide="zap" class="w-7 h-7 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Serviços Elétricos</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Instalações elétricas residenciais e comerciais, troca de disjuntores, quadros de luz, tomadas e iluminação LED.
+            </p>
+            <ul class="mt-4 space-y-2">
+              <li class="flex items-center gap-2 text-sm text-slate-300">
+                <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
+                <span>Instalações Completas</span>
+              </li>
+              <li class="flex items-center gap-2 text-sm text-slate-300">
+                <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
+                <span>Reformas e Upgrades</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="relative py-20 lg:py-32 bg-slate-900">
+    <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+        <span class="inline-block px-4 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-semibold mb-4">
+          NOSSAS OBRAS
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+          Instalações <span class="text-cyan-400">Impecáveis</span>
+        </h2>
+        <p class="text-slate-400 text-lg">
+          Trabalhamos com padronização, organização e acabamento profissional. Cada instalação é um cartão de visitas.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-7xl mx-auto">
+        
+        <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] reveal-scale">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Câmera de segurança instalada" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h4 class="text-lg font-bold text-white">Instalação CFTV</h4>
+            <p class="text-sm text-slate-300">Residência - Curitiba</p>
+          </div>
+        </div>
+        
+        <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] reveal-scale" style="transition-delay: 0.1s;">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="Cabeamento organizado" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h4 class="text-lg font-bold text-white">Cabeamento Estruturado</h4>
+            <p class="text-sm text-slate-300">Empresa - São José dos Pinhais</p>
+          </div>
+        </div>
+        
+        <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] reveal-scale" style="transition-delay: 0.2s;">
+          <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80" alt="Quadro de luz organizado" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h4 class="text-lg font-bold text-white">Quadro de Distribuição</h4>
+            <p class="text-sm text-slate-300">Comércio - Colombo</p>
+          </div>
+        </div>
+        
+        <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] reveal-scale">
+          <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=80" alt="Câmera dome" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h4 class="text-lg font-bold text-white">Câmeras IP</h4>
+            <p class="text-sm text-slate-300">Condomínio - Pinhais</p>
+          </div>
+        </div>
+        
+        <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] reveal-scale" style="transition-delay: 0.1s;">
+          <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80" alt="Rack de rede organizado" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h4 class="text-lg font-bold text-white">Rack Organizado</h4>
+            <p class="text-sm text-slate-300">Escritório - Curitiba</p>
+          </div>
+        </div>
+        
+        <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] reveal-scale" style="transition-delay: 0.2s;">
+          <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80" alt="Instalação elétrica" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h4 class="text-lg font-bold text-white">Infraestrutura Elétrica</h4>
+            <p class="text-sm text-slate-300">Residência - Araucária</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <section id="diferenciais" class="relative py-20 lg:py-32 bg-slate-950 overflow-hidden">
+    
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="relative w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+        <span class="inline-block px-4 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-semibold mb-4">
+          POR QUE ESCOLHER A JJOTA?
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+          Nossos <span class="text-cyan-400">Diferenciais</span>
+        </h2>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        
+        <div class="group p-8 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 transition-all duration-500 reveal-left">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-green-500/20">
+            <i data-lucide="sparkles" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Serviço Limpo</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Acabamento impecável e organização do ambiente. Deixamos tudo limpo e funcionando perfeitamente. Respeitamos seu espaço.
+          </p>
+          <div class="mt-6 flex items-center gap-2 text-green-400 text-sm font-medium">
+            <i data-lucide="check-circle" class="w-4 h-4"></i>
+            <span>Garantia de Satisfação</span>
+          </div>
+        </div>
+        
+        <div class="group p-8 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 transition-all duration-500 reveal">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-cyan-500/20">
+            <i data-lucide="cpu" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Tecnologia de Ponta</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Trabalhamos com as melhores marcas do mercado. Equipamentos modernos, duráveis e com suporte técnico garantido.
+          </p>
+          <div class="mt-6 flex items-center gap-2 text-cyan-400 text-sm font-medium">
+            <i data-lucide="check-circle" class="w-4 h-4"></i>
+            <span>Marcas Premium</span>
+          </div>
+        </div>
+        
+        <div class="group p-8 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 transition-all duration-500 reveal-right">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-orange-500/20">
+            <i data-lucide="clock" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Atendimento Rápido</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Resposta em até 30 minutos no WhatsApp. Agendamento flexível e execução no prazo combinado. Valorizamos seu tempo.
+          </p>
+          <div class="mt-6 flex items-center gap-2 text-orange-400 text-sm font-medium">
+            <i data-lucide="check-circle" class="w-4 h-4"></i>
+            <span>Resposta Imediata</span>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-20 lg:py-32 bg-gradient-to-br from-cyan-600 via-blue-700 to-slate-900 overflow-hidden">
+    
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+    </div>
+    
+    <div class="relative w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+      <div class="max-w-4xl mx-auto text-center reveal-scale">
+        
+        <div class="w-20 h-20 mx-auto rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center mb-8 animate-float">
+          <i data-lucide="shield-check" class="w-10 h-10 text-white"></i>
+        </div>
+        
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+          Pronto para Proteger <br class="hidden sm:block" />o que é Seu?
+        </h2>
+        
+        <p class="text-lg sm:text-xl text-white/80 mb-4 max-w-2xl mx-auto">
+          Atendemos <span class="font-bold text-white">Curitiba e toda a Região Metropolitana</span> com soluções completas em segurança eletrônica.
+        </p>
+        <p class="text-white/60 mb-10">
+          Orçamento sem compromisso. Visita técnica disponível.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          
+          <a href="https://wa.me/5541996570651" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 px-10 py-5 bg-white text-slate-900 hover:bg-slate-100 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl w-full sm:w-auto justify-center">
+            <i data-lucide="message-circle" class="w-6 h-6 text-green-600 group-hover:animate-bounce"></i>
+            <span>Falar no WhatsApp</span>
+          </a>
+          
+          <a href="tel:+5541996570651" class="group flex items-center gap-3 px-10 py-5 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 w-full sm:w-auto justify-center">
+            <i data-lucide="phone" class="w-6 h-6"></i>
+            <span>Ligar Agora</span>
+          </a>
+        </div>
+        
+        <div class="mt-12 flex flex-wrap items-center justify-center gap-3">
+          <span class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white/80 text-sm border border-white/5">Curitiba</span>
+          <span class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white/80 text-sm border border-white/5">São José dos Pinhais</span>
+          <span class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white/80 text-sm border border-white/5">Pinhais</span>
+          <span class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white/80 text-sm border border-white/5">Colombo</span>
+          <span class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white/80 text-sm border border-white/5">Araucária</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contato" class="relative bg-slate-950 border-t border-white/5">
+    
+    <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12 py-16 lg:py-20">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+          
+          <div class="lg:col-span-1">
+            <a href="#" class="flex items-center gap-3 mb-6">
+              <img src="img/logo.jpg" alt="Logo JJota Instalações" class="h-12 w-auto rounded-lg shadow-md">
+              <span class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                JJota Instalações
+              </span>
+            </a>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Especialistas em segurança eletrônica e serviços elétricos em Curitiba e Região Metropolitana. Protegendo seu patrimônio com tecnologia e confiança.
+            </p>
+            <div class="flex items-center gap-3">
+              <a href="https://wa.me/5541996570651" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-green-500/20 hover:bg-green-500/30 flex items-center justify-center transition-colors">
+                <i data-lucide="message-circle" class="w-5 h-5 text-green-400"></i>
+              </a>
+              <a href="tel:+5541996570651" class="w-10 h-10 rounded-full bg-cyan-500/20 hover:bg-cyan-500/30 flex items-center justify-center transition-colors">
+                <i data-lucide="phone" class="w-5 h-5 text-cyan-400"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div>
+            <h4 class="text-white font-bold mb-6">Serviços</h4>
+            <ul class="space-y-3">
+              <li>
+                <a href="#servicos" class="text-slate-400 hover:text-cyan-400 transition-colors text-sm flex items-center gap-2">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-500"></i>
+                  Câmeras de Segurança
+                </a>
+              </li>
+              <li>
+                <a href="#servicos" class="text-slate-400 hover:text-cyan-400 transition-colors text-sm flex items-center gap-2">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-500"></i>
+                  Alarmes e Cercas
+                </a>
+              </li>
+              <li>
+                <a href="#servicos" class="text-slate-400 hover:text-cyan-400 transition-colors text-sm flex items-center gap-2">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-500"></i>
+                  Controle de Acesso
+                </a>
+              </li>
+              <li>
+                <a href="#servicos" class="text-slate-400 hover:text-cyan-400 transition-colors text-sm flex items-center gap-2">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-500"></i>
+                  Redes e Internet
+                </a>
+              </li>
+              <li>
+                <a href="#servicos" class="text-slate-400 hover:text-cyan-400 transition-colors text-sm flex items-center gap-2">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-400"></i>
+                  Antenas Digitais
+                </a>
+              </li>
+              <li>
+                <a href="#servicos" class="text-slate-400 hover:text-cyan-400 transition-colors text-sm flex items-center gap-2">
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-500"></i>
+                  Serviços Elétricos
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="text-white font-bold mb-6">Horário de Funcionamento</h4>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <i data-lucide="clock" class="w-5 h-5 text-cyan-400 mt-0.5"></i>
+                <div>
+                  <p class="text-white text-sm font-medium">Segunda a Sexta</p>
+                  <p class="text-slate-400 text-sm">08:00 às 18:00</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <i data-lucide="clock" class="w-5 h-5 text-cyan-400 mt-0.5"></i>
+                <div>
+                  <p class="text-white text-sm font-medium">Sábado</p>
+                  <p class="text-slate-400 text-sm">08:00 às 13:00</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <i data-lucide="clock" class="w-5 h-5 text-slate-500 mt-0.5"></i>
+                <div>
+                  <p class="text-slate-300 text-sm font-medium">Domingo</p>
+                  <p class="text-slate-500 text-sm">Fechado</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 class="text-white font-bold mb-6">Contato</h4>
+            <ul class="space-y-4">
+              <li>
+                <a href="tel:+5541996570651" class="flex items-center gap-3 text-slate-400 hover:text-cyan-400 transition-colors">
+                  <i data-lucide="phone" class="w-5 h-5 text-cyan-400"></i>
+                  <span class="text-sm">(41) 99657-0651</span>
+                </a>
+              </li>
+              <li class="flex items-start gap-3">
+                <i data-lucide="map-pin" class="w-5 h-5 text-cyan-400 mt-0.5"></i>
+                <span class="text-slate-400 text-sm">Curitiba e Região Metropolitana - PR</span>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+        
+        <div class="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p class="text-slate-500 text-sm text-center sm:text-left">
+            © 2026 JJota Instalações. Todos os direitos reservados.
+          </p>
+          <p class="text-slate-600 text-xs uppercase tracking-widest font-bold">
+            Design focado em conversão
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5541996570651" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 group">
+    <div class="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20 pointer-events-none"></div>
+    <div class="absolute inset-0 rounded-full bg-green-500 animate-pulse opacity-40 pointer-events-none"></div>
+    
+    <div class="relative w-16 h-16 rounded-full bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center shadow-2xl shadow-green-500/40 hover:scale-110 transition-transform duration-300">
+      <i data-lucide="message-circle" class="w-8 h-8 text-white"></i>
+    </div>
+  </a>
+
+  <script>
+    // Inicializar Lucide Icons
+    lucide.createIcons();
+    
+    // ============================================
+    // INTERSECTION OBSERVER PARA ANIMAÇÕES DE SCROLL
+    // ============================================
+    document.addEventListener('DOMContentLoaded', function() {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            // Opcional: Descomente a linha abaixo para animar apenas uma vez
+            // observer.unobserve(entry.target); 
+          }
+        });
+      }, observerOptions);
+      
+      // Observar elementos com classes de reveal
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+        observer.observe(el);
+      });
+    });
+    
+    // ============================================
+    // HEADER SCROLL EFFECT
+    // ============================================
+    const header = document.getElementById('header');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      // Adicionar fundo mais escuro ao scrollar
+      if (currentScroll > 100) {
+        header.classList.add('bg-slate-900/95', 'shadow-lg', 'shadow-black/10');
+        header.classList.remove('bg-slate-900/80');
+      } else {
+        header.classList.remove('bg-slate-900/95', 'shadow-lg', 'shadow-black/10');
+        header.classList.add('bg-slate-900/80');
+      }
+      
+      lastScroll = currentScroll;
+    });
+    
+    // ============================================
+    // MENU MOBILE TOGGLE
+    // ============================================
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      
+      // Mudar ícone
+      const icon = mobileMenuBtn.querySelector('i');
+      if (mobileMenu.classList.contains('hidden')) {
+        icon.setAttribute('data-lucide', 'menu');
+      } else {
+        icon.setAttribute('data-lucide', 'x');
+      }
+      lucide.createIcons();
+    });
+    
+    // Fechar menu ao clicar em um link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.setAttribute('data-lucide', 'menu');
+        lucide.createIcons();
+      });
+    });
+    
+    // ============================================
+    // SMOOTH SCROLL PARA LINKS DE NAVEGAÇÃO
+    // ============================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const headerOffset = 80;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // ============================================
+    // ANIMAÇÃO DE CONTADOR (ESTATÍSTICAS)
+    // ============================================
+    function animateCounter(element, target, duration = 2000) {
+      let start = 0;
+      const increment = target / (duration / 16);
+      
+      function updateCounter() {
+        start += increment;
+        if (start < target) {
+          element.textContent = Math.floor(start) + '+';
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = target + '+';
+        }
+      }
+      
+      updateCounter();
+    }
+    
+    // Observar estatísticas para animar
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+          entry.target.classList.add('counted');
+          const value = parseInt(entry.target.textContent);
+          animateCounter(entry.target, value);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    document.querySelectorAll('.text-2xl.sm\\:text-3xl.font-bold').forEach(stat => {
+      if (stat.textContent.includes('+')) {
+        statsObserver.observe(stat);
+      }
+    });
+  </script>
+
+</body>
+</html>
