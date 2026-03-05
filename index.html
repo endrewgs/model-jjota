@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JJota Instalações | Segurança Eletrônica e Elétrica em Curitiba</title>
-  <meta name="description" content="Instalação e manutenção de CFTV, alarmes, cercas elétricas e serviços elétricos em Curitiba e Região Metropolitana. Proteja seu patrimônio com quem entende.">
+  <meta name="description" content="Instalação e manutenção de CFTV, alarmes, interfones, cercas elétricas e serviços elétricos em Curitiba e Região Metropolitana.">
   
   <script src="https://cdn.tailwindcss.com"></script>
   
@@ -26,8 +26,9 @@
             'slide-in-left': 'slideInLeft 0.8s ease-out forwards',
             'slide-in-right': 'slideInRight 0.8s ease-out forwards',
             'scale-in': 'scaleIn 0.5s ease-out forwards',
-            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             'float': 'float 3s ease-in-out infinite',
+            'scroll': 'scroll 30s linear infinite', // Animação do Carrossel Infinito
           },
           keyframes: {
             fadeInUp: {
@@ -54,6 +55,10 @@
               '0%, 100%': { transform: 'translateY(0)' },
               '50%': { transform: 'translateY(-10px)' },
             },
+            scroll: {
+              '0%': { transform: 'translateX(0)' },
+              '100%': { transform: 'translateX(-50%)' }, // Move até a metade (as imagens são duplicadas)
+            }
           },
         },
       },
@@ -113,6 +118,15 @@
       opacity: 1;
       transform: scale(1);
     }
+
+    /* Ocultar barra de rolagem no carrossel, se houver */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
   </style>
 </head>
 <body class="bg-slate-900 text-white font-sans antialiased">
@@ -127,7 +141,7 @@
             <span class="text-lg lg:text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
               JJota Instalações
             </span>
-            <span class="text-[10px] text-slate-400 -mt-1 tracking-wider">SEGURANÇA ELETRÔNICA</span>
+            <span class="text-[10px] text-slate-400 -mt-1 tracking-wider uppercase">Manutenção e Instalação</span>
           </div>
         </a>
         
@@ -139,7 +153,7 @@
           <a href="#contato" class="text-sm text-slate-300 hover:text-cyan-400 transition-colors duration-300 font-medium">Contato</a>
         </nav>
         
-        <a href="https://wa.me/5541996570651" target="_blank" rel="noopener noreferrer" class="hidden lg:flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-green-500 rounded-full font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/30">
+        <a href="https://wa.me/5541996570651?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" rel="noopener noreferrer" class="hidden lg:flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-green-500 rounded-full font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/30">
           <i data-lucide="message-circle" class="w-4 h-4"></i>
           <span>Orçamento</span>
         </a>
@@ -157,7 +171,7 @@
         <a href="#portfolio" class="block text-slate-300 hover:text-cyan-400 transition-colors py-2 font-medium">Obras</a>
         <a href="#diferenciais" class="block text-slate-300 hover:text-cyan-400 transition-colors py-2 font-medium">Diferenciais</a>
         <a href="#contato" class="block text-slate-300 hover:text-cyan-400 transition-colors py-2 font-medium">Contato</a>
-        <a href="https://wa.me/5541996570651" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full px-5 py-3 bg-gradient-to-r from-green-500 to-green-600 rounded-full font-semibold text-sm mt-4">
+        <a href="https://wa.me/5541996570651?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full px-5 py-3 bg-gradient-to-r from-green-500 to-green-600 rounded-full font-semibold text-sm mt-4">
           <i data-lucide="message-circle" class="w-4 h-4"></i>
           <span>Falar no WhatsApp</span>
         </a>
@@ -191,13 +205,13 @@
         
         <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10 animate-fade-in-up" style="animation-delay: 0.3s;">
           Proteja o que é seu com tecnologia de ponta. Especialistas em <span class="text-cyan-400 font-semibold">CFTV</span>, 
-          <span class="text-cyan-400 font-semibold">Alarmes</span> e <span class="text-cyan-400 font-semibold">Elétrica</span> 
-          residencial e comercial em Curitiba.
+          <span class="text-cyan-400 font-semibold">Alarmes</span>, <span class="text-cyan-400 font-semibold">Interfones</span> 
+          e <span class="text-cyan-400 font-semibold">Elétrica</span> residencial e comercial em Curitiba.
         </p>
         
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.4s;">
           
-          <a href="https://wa.me/5541996570651" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/30 w-full sm:w-auto justify-center">
+          <a href="https://wa.me/5541996570651?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/30 w-full sm:w-auto justify-center">
             <i data-lucide="message-circle" class="w-5 h-5 group-hover:animate-bounce"></i>
             <span>Solicitar Orçamento</span>
           </a>
@@ -210,15 +224,15 @@
         
         <div class="grid grid-cols-3 gap-4 sm:gap-8 mt-16 max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 0.5s;">
           <div class="text-center p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
-            <div class="text-2xl sm:text-3xl font-bold text-cyan-400">+500</div>
+            <div class="text-Counter 2xl sm:text-3xl font-bold text-cyan-400 counted" data-target="500">500+</div>
             <div class="text-xs sm:text-sm text-slate-400 mt-1">Instalações</div>
           </div>
           <div class="text-center p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
-            <div class="text-2xl sm:text-3xl font-bold text-cyan-400">100%</div>
+            <div class="text-Counter 2xl sm:text-3xl font-bold text-cyan-400 counted" data-target="100">100%</div>
             <div class="text-xs sm:text-sm text-slate-400 mt-1">Satisfação</div>
           </div>
           <div class="text-center p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10">
-            <div class="text-2xl sm:text-3xl font-bold text-cyan-400">15+</div>
+            <div class="text-Counter 2xl sm:text-3xl font-bold text-cyan-400 counted" data-target="15">15+</div>
             <div class="text-xs sm:text-sm text-slate-400 mt-1">Anos Exp.</div>
           </div>
         </div>
@@ -237,10 +251,10 @@
         <span class="inline-block px-4 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-semibold mb-4">
           NOSSOS SERVIÇOS
         </span>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
           Soluções Completas em <span class="text-cyan-400">Segurança</span>
         </h2>
-        <p class="text-slate-400 text-lg">
+        <p class="text-slate-400 text-lg font-light leading-relaxed">
           Oferecemos tecnologia de ponta para proteger seu patrimônio com instalações profissionais e suporte técnico especializado.
         </p>
       </div>
@@ -254,15 +268,15 @@
               <i data-lucide="video" class="w-7 h-7 text-white"></i>
             </div>
             <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Câmeras de Segurança</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
+            <p class="text-slate-400 text-sm leading-relaxed font-light">
               Instalação de CFTV com câmeras HD e 4K, visão noturna, acesso remoto via aplicativo. Monitore seu imóvel de qualquer lugar.
             </p>
             <ul class="mt-4 space-y-2">
-              <li class="flex items-center gap-2 text-sm text-slate-300">
+              <li class="flex items-center gap-2 text-sm text-slate-300 font-medium">
                 <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
                 <span>Câmeras IP e Analógicas</span>
               </li>
-              <li class="flex items-center gap-2 text-sm text-slate-300">
+              <li class="flex items-center gap-2 text-sm text-slate-300 font-medium">
                 <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
                 <span>Acesso via Celular</span>
               </li>
@@ -277,15 +291,15 @@
               <i data-lucide="bell-ring" class="w-7 h-7 text-white"></i>
             </div>
             <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Alarmes e Cercas</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
+            <p class="text-slate-400 text-sm leading-relaxed font-light">
               Sistemas de alarme inteligente com sensores de presença, cerca elétrica industrial e residencial de alta performance.
             </p>
             <ul class="mt-4 space-y-2">
-              <li class="flex items-center gap-2 text-sm text-slate-300">
+              <li class="flex items-center gap-2 text-sm text-slate-300 font-medium">
                 <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
                 <span>Monitoramento 24h</span>
               </li>
-              <li class="flex items-center gap-2 text-sm text-slate-300">
+              <li class="flex items-center gap-2 text-sm text-slate-300 font-medium">
                 <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
                 <span>Cerca Elétrica Segura</span>
               </li>
@@ -299,18 +313,18 @@
             <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
               <i data-lucide="fingerprint" class="w-7 h-7 text-white"></i>
             </div>
-            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Controle de Acesso</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
-              Sistemas de biometria, cartões de proximidade e interfones inteligentes para controle total de entradas e saídas.
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Acesso e Interfonia</h3>
+            <p class="text-slate-400 text-sm leading-relaxed font-light">
+              Sistemas de biometria, cartões de proximidade, fechaduras digitais e interfones (áudio/vídeo) para controle total.
             </p>
             <ul class="mt-4 space-y-2">
-              <li class="flex items-center gap-2 text-sm text-slate-300">
+              <li class="flex items-center gap-2 text-sm text-slate-300 font-medium">
                 <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
-                <span>Leitores Biométricos</span>
+                <span>Biometria e Tags</span>
               </li>
-              <li class="flex items-center gap-2 text-sm text-slate-300">
+              <li class="flex items-center gap-2 text-sm text-slate-300 font-medium">
                 <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
-                <span>Interfones e Porteiros</span>
+                <span>Vídeo Porteiro e Interfones</span>
               </li>
             </ul>
           </div>
@@ -323,15 +337,15 @@
               <i data-lucide="network" class="w-7 h-7 text-white"></i>
             </div>
             <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Cabeamento Estruturado</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
+            <p class="text-slate-400 text-sm leading-relaxed font-light">
               Instalação organizada de redes de internet, cabeamento CAT6 e fibra óptica para residências e empresas.
             </p>
             <ul class="mt-4 space-y-2">
-              <li class="flex items-center gap-2 text-sm text-slate-300">
+              <li class="flex items-center gap-2 text-sm text-slate-300 font-medium">
                 <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
                 <span>Redes CAT6/CAT6A</span>
               </li>
-              <li class="flex items-center gap-2 text-sm text-slate-300">
+              <li class="flex items-center gap-2 text-sm text-slate-300 font-medium">
                 <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
                 <span>Rack e Organização</span>
               </li>
@@ -346,15 +360,15 @@
               <i data-lucide="antenna" class="w-7 h-7 text-white"></i>
             </div>
             <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Antenas Digitais</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
+            <p class="text-slate-400 text-sm leading-relaxed font-light">
               Instalação e apontamento de antenas digitais UHF para sinal de TV aberta em alta definição sem mensalidades.
             </p>
             <ul class="mt-4 space-y-2">
-              <li class="flex items-center gap-2 text-sm text-slate-300">
+              <li class="flex items-center gap-2 text-sm text-slate-300 font-medium">
                 <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
                 <span>Antenas UHF 4K</span>
               </li>
-              <li class="flex items-center gap-2 text-sm text-slate-300">
+              <li class="flex items-center gap-2 text-sm text-slate-300 font-medium">
                 <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
                 <span>Apontamento Preciso</span>
               </li>
@@ -369,15 +383,15 @@
               <i data-lucide="zap" class="w-7 h-7 text-white"></i>
             </div>
             <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">Serviços Elétricos</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">
+            <p class="text-slate-400 text-sm leading-relaxed font-light">
               Instalações elétricas residenciais e comerciais, troca de disjuntores, quadros de luz, tomadas e iluminação LED.
             </p>
             <ul class="mt-4 space-y-2">
-              <li class="flex items-center gap-2 text-sm text-slate-300">
+              <li class="flex items-center gap-2 text-sm text-slate-300 font-medium">
                 <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
                 <span>Instalações Completas</span>
               </li>
-              <li class="flex items-center gap-2 text-sm text-slate-300">
+              <li class="flex items-center gap-2 text-sm text-slate-300 font-medium">
                 <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i>
                 <span>Reformas e Upgrades</span>
               </li>
@@ -389,6 +403,36 @@
     </div>
   </section>
 
+  <section class="py-16 bg-slate-900 overflow-hidden relative border-y border-white/5">
+    <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12 mb-12 text-center reveal">
+      <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">
+        <span class="text-white">Trabalhamos apenas com as</span>
+        <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent animate-pulse-slow">melhores marcas</span>
+        <span class="text-white">do mercado</span>
+      </h3>
+      <p class="text-sm sm:text-base text-slate-400 font-light">Confira as marcas abaixo:</p>
+    </div>
+    
+    <div class="relative w-full flex overflow-x-hidden group">
+      <div class="absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-slate-900 to-transparent z-10"></div>
+      <div class="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-slate-900 to-transparent z-10"></div>
+      
+      <div class="flex items-center gap-12 sm:gap-24 animate-scroll hover:[animation-play-state:paused] w-max px-6 sm:px-12">
+        <img src="img/intelbras.png" alt="Intelbras" class="h-12 sm:h-14 w-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-110">
+        <img src="img/hikvision.png" alt="Hikvision" class="h-10 sm:h-12 w-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-110">
+        <img src="img/ppa.png" alt="PPA" class="h-10 sm:h-12 w-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-110">
+        <img src="img/rossi.png" alt="Rossi" class="h-12 sm:h-14 w-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-110">
+        <img src="img/nice.png" alt="Nice" class="h-10 sm:h-12 w-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-110">
+        
+        <img src="img/intelbras.png" alt="Intelbras" class="h-12 sm:h-14 w-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-110">
+        <img src="img/hikvision.png" alt="Hikvision" class="h-10 sm:h-12 w-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-110">
+        <img src="img/ppa.png" alt="PPA" class="h-10 sm:h-12 w-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-110">
+        <img src="img/rossi.png" alt="Rossi" class="h-12 sm:h-14 w-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-110">
+        <img src="img/nice.png" alt="Nice" class="h-10 sm:h-12 w-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-110">
+      </div>
+    </div>
+  </section>
+
   <section id="portfolio" class="relative py-20 lg:py-32 bg-slate-900">
     <div class="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
       
@@ -396,10 +440,10 @@
         <span class="inline-block px-4 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-semibold mb-4">
           NOSSAS OBRAS
         </span>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
           Instalações <span class="text-cyan-400">Impecáveis</span>
         </h2>
-        <p class="text-slate-400 text-lg">
+        <p class="text-slate-400 text-lg font-light leading-relaxed">
           Trabalhamos com padronização, organização e acabamento profissional. Cada instalação é um cartão de visitas.
         </p>
       </div>
@@ -464,7 +508,7 @@
     </div>
   </section>
 
-  <section id="diferenciais" class="relative py-20 lg:py-32 bg-slate-950 overflow-hidden">
+  <section id="diferenciais" class="relative py-20 lg:py-32 bg-slate-950 overflow-hidden border-t border-white/5">
     
     <div class="absolute inset-0 pointer-events-none">
       <div class="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
@@ -477,7 +521,7 @@
         <span class="inline-block px-4 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-semibold mb-4">
           POR QUE ESCOLHER A JJOTA?
         </span>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
           Nossos <span class="text-cyan-400">Diferenciais</span>
         </h2>
       </div>
@@ -489,7 +533,7 @@
             <i data-lucide="sparkles" class="w-8 h-8 text-white"></i>
           </div>
           <h3 class="text-xl font-bold text-white mb-3">Serviço Limpo</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">
+          <p class="text-slate-400 text-sm leading-relaxed font-light">
             Acabamento impecável e organização do ambiente. Deixamos tudo limpo e funcionando perfeitamente. Respeitamos seu espaço.
           </p>
           <div class="mt-6 flex items-center gap-2 text-green-400 text-sm font-medium">
@@ -500,15 +544,15 @@
         
         <div class="group p-8 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 transition-all duration-500 reveal">
           <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-cyan-500/20">
-            <i data-lucide="cpu" class="w-8 h-8 text-white"></i>
+            <i data-lucide="shield" class="w-8 h-8 text-white"></i>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3">Tecnologia de Ponta</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">
-            Trabalhamos com as melhores marcas do mercado. Equipamentos modernos, duráveis e com suporte técnico garantido.
+          <h3 class="text-xl font-bold text-white mb-3">Garantia de 1 Ano</h3>
+          <p class="text-slate-400 text-sm leading-relaxed font-light">
+            Oferecemos garantia de até 1 ano em nossos produtos e serviços. Segurança e tranquilidade para o seu investimento com suporte total.
           </p>
           <div class="mt-6 flex items-center gap-2 text-cyan-400 text-sm font-medium">
             <i data-lucide="check-circle" class="w-4 h-4"></i>
-            <span>Marcas Premium</span>
+            <span>Garantia Estendida</span>
           </div>
         </div>
         
@@ -517,7 +561,7 @@
             <i data-lucide="clock" class="w-8 h-8 text-white"></i>
           </div>
           <h3 class="text-xl font-bold text-white mb-3">Atendimento Rápido</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">
+          <p class="text-slate-400 text-sm leading-relaxed font-light">
             Resposta em até 30 minutos no WhatsApp. Agendamento flexível e execução no prazo combinado. Valorizamos seu tempo.
           </p>
           <div class="mt-6 flex items-center gap-2 text-orange-400 text-sm font-medium">
@@ -536,27 +580,27 @@
       <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
     </div>
     
-    <div class="relative w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+    <div class="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-12">
       <div class="max-w-4xl mx-auto text-center reveal-scale">
         
         <div class="w-20 h-20 mx-auto rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center mb-8 animate-float">
           <i data-lucide="shield-check" class="w-10 h-10 text-white"></i>
         </div>
         
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
           Pronto para Proteger <br class="hidden sm:block" />o que é Seu?
         </h2>
         
-        <p class="text-lg sm:text-xl text-white/80 mb-4 max-w-2xl mx-auto">
+        <p class="text-lg sm:text-xl text-white/80 mb-4 max-w-2xl mx-auto font-light leading-relaxed">
           Atendemos <span class="font-bold text-white">Curitiba e toda a Região Metropolitana</span> com soluções completas em segurança eletrônica.
         </p>
-        <p class="text-white/60 mb-10">
+        <p class="text-white/60 mb-10 font-light">
           Orçamento sem compromisso. Visita técnica disponível.
         </p>
         
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
           
-          <a href="https://wa.me/5541996570651" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 px-10 py-5 bg-white text-slate-900 hover:bg-slate-100 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl w-full sm:w-auto justify-center">
+          <a href="https://wa.me/5541996570651?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 px-10 py-5 bg-white text-slate-900 hover:bg-slate-100 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl w-full sm:w-auto justify-center">
             <i data-lucide="message-circle" class="w-6 h-6 text-green-600 group-hover:animate-bounce"></i>
             <span>Falar no WhatsApp</span>
           </a>
@@ -568,11 +612,11 @@
         </div>
         
         <div class="mt-12 flex flex-wrap items-center justify-center gap-3">
-          <span class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white/80 text-sm border border-white/5">Curitiba</span>
-          <span class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white/80 text-sm border border-white/5">São José dos Pinhais</span>
-          <span class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white/80 text-sm border border-white/5">Pinhais</span>
-          <span class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white/80 text-sm border border-white/5">Colombo</span>
-          <span class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white/80 text-sm border border-white/5">Araucária</span>
+          <span class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white/80 text-sm border border-white/5 font-medium">Curitiba</span>
+          <span class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white/80 text-sm border border-white/5 font-medium">São José dos Pinhais</span>
+          <span class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white/80 text-sm border border-white/5 font-medium">Pinhais</span>
+          <span class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white/80 text-sm border border-white/5 font-medium">Colombo</span>
+          <span class="px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-white/80 text-sm border border-white/5 font-medium">Araucária</span>
         </div>
       </div>
     </div>
@@ -591,7 +635,7 @@
                 JJota Instalações
               </span>
             </a>
-            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+            <p class="text-slate-400 text-sm leading-relaxed mb-6 font-light">
               Especialistas em segurança eletrônica e serviços elétricos em Curitiba e Região Metropolitana. Protegendo seu patrimônio com tecnologia e confiança.
             </p>
             <div class="flex items-center gap-3">
@@ -605,40 +649,40 @@
           </div>
           
           <div>
-            <h4 class="text-white font-bold mb-6">Serviços</h4>
+            <h4 class="text-white font-bold mb-6 tracking-wide text-sm uppercase">Serviços</h4>
             <ul class="space-y-3">
               <li>
-                <a href="#servicos" class="text-slate-400 hover:text-cyan-400 transition-colors text-sm flex items-center gap-2">
+                <a href="#servicos" class="text-slate-400 hover:text-cyan-400 transition-colors text-sm flex items-center gap-2 font-medium">
                   <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-500"></i>
                   Câmeras de Segurança
                 </a>
               </li>
               <li>
-                <a href="#servicos" class="text-slate-400 hover:text-cyan-400 transition-colors text-sm flex items-center gap-2">
+                <a href="#servicos" class="text-slate-400 hover:text-cyan-400 transition-colors text-sm flex items-center gap-2 font-medium">
                   <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-500"></i>
                   Alarmes e Cercas
                 </a>
               </li>
               <li>
-                <a href="#servicos" class="text-slate-400 hover:text-cyan-400 transition-colors text-sm flex items-center gap-2">
+                <a href="#servicos" class="text-slate-400 hover:text-cyan-400 transition-colors text-sm flex items-center gap-2 font-medium">
                   <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-500"></i>
-                  Controle de Acesso
+                  Acesso e Interfones
                 </a>
               </li>
               <li>
-                <a href="#servicos" class="text-slate-400 hover:text-cyan-400 transition-colors text-sm flex items-center gap-2">
+                <a href="#servicos" class="text-slate-400 hover:text-cyan-400 transition-colors text-sm flex items-center gap-2 font-medium">
                   <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-500"></i>
                   Redes e Internet
                 </a>
               </li>
               <li>
-                <a href="#servicos" class="text-slate-400 hover:text-cyan-400 transition-colors text-sm flex items-center gap-2">
+                <a href="#servicos" class="text-slate-400 hover:text-cyan-400 transition-colors text-sm flex items-center gap-2 font-medium">
                   <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-400"></i>
                   Antenas Digitais
                 </a>
               </li>
               <li>
-                <a href="#servicos" class="text-slate-400 hover:text-cyan-400 transition-colors text-sm flex items-center gap-2">
+                <a href="#servicos" class="text-slate-400 hover:text-cyan-400 transition-colors text-sm flex items-center gap-2 font-medium">
                   <i data-lucide="chevron-right" class="w-4 h-4 text-cyan-500"></i>
                   Serviços Elétricos
                 </a>
@@ -647,42 +691,42 @@
           </div>
           
           <div>
-            <h4 class="text-white font-bold mb-6">Horário de Funcionamento</h4>
+            <h4 class="text-white font-bold mb-6 tracking-wide text-sm uppercase">Funcionamento</h4>
             <ul class="space-y-4">
               <li class="flex items-start gap-3">
                 <i data-lucide="clock" class="w-5 h-5 text-cyan-400 mt-0.5"></i>
                 <div>
-                  <p class="text-white text-sm font-medium">Segunda a Sexta</p>
-                  <p class="text-slate-400 text-sm">08:00 às 18:00</p>
+                  <p class="text-white text-sm font-semibold">Segunda a Sexta</p>
+                  <p class="text-slate-400 text-sm font-light">08:00 às 18:00</p>
                 </div>
               </li>
               <li class="flex items-start gap-3">
                 <i data-lucide="clock" class="w-5 h-5 text-cyan-400 mt-0.5"></i>
                 <div>
-                  <p class="text-white text-sm font-medium">Sábado</p>
-                  <p class="text-slate-400 text-sm">08:00 às 13:00</p>
+                  <p class="text-white text-sm font-semibold">Sábado</p>
+                  <p class="text-slate-400 text-sm font-light">08:00 às 13:00</p>
                 </div>
               </li>
               <li class="flex items-start gap-3">
-                <i data-lucide="clock" class="w-5 h-5 text-slate-500 mt-0.5"></i>
+                <i data-lucide="clock" class="w-5 h-5 text-slate-600 mt-0.5"></i>
                 <div>
-                  <p class="text-slate-300 text-sm font-medium">Domingo</p>
-                  <p class="text-slate-500 text-sm">Fechado</p>
+                  <p class="text-slate-300 text-sm font-semibold">Domingo</p>
+                  <p class="text-slate-600 text-sm font-light">Fechado</p>
                 </div>
               </li>
             </ul>
           </div>
           
           <div>
-            <h4 class="text-white font-bold mb-6">Contato</h4>
+            <h4 class="text-white font-bold mb-6 tracking-wide text-sm uppercase">Contato</h4>
             <ul class="space-y-4">
               <li>
-                <a href="tel:+5541996570651" class="flex items-center gap-3 text-slate-400 hover:text-cyan-400 transition-colors">
+                <a href="tel:+5541996570651" class="flex items-center gap-3 text-slate-400 hover:text-cyan-400 transition-colors font-medium">
                   <i data-lucide="phone" class="w-5 h-5 text-cyan-400"></i>
                   <span class="text-sm">(41) 99657-0651</span>
                 </a>
               </li>
-              <li class="flex items-start gap-3">
+              <li class="flex items-start gap-3 font-medium">
                 <i data-lucide="map-pin" class="w-5 h-5 text-cyan-400 mt-0.5"></i>
                 <span class="text-slate-400 text-sm">Curitiba e Região Metropolitana - PR</span>
               </li>
@@ -692,7 +736,7 @@
         </div>
         
         <div class="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p class="text-slate-500 text-sm text-center sm:text-left">
+          <p class="text-slate-500 text-sm text-center sm:text-left font-light">
             © 2026 JJota Instalações. Todos os direitos reservados.
           </p>
           <p class="text-slate-600 text-xs uppercase tracking-widest font-bold">
@@ -703,7 +747,7 @@
     </div>
   </footer>
 
-  <a href="https://wa.me/5541996570651" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 group">
+  <a href="https://wa.me/5541996570651?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 group">
     <div class="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20 pointer-events-none"></div>
     <div class="absolute inset-0 rounded-full bg-green-500 animate-pulse opacity-40 pointer-events-none"></div>
     
@@ -730,8 +774,6 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('active');
-            // Opcional: Descomente a linha abaixo para animar apenas uma vez
-            // observer.unobserve(entry.target); 
           }
         });
       }, observerOptions);
@@ -746,7 +788,6 @@
     // HEADER SCROLL EFFECT
     // ============================================
     const header = document.getElementById('header');
-    let lastScroll = 0;
     
     window.addEventListener('scroll', () => {
       const currentScroll = window.pageYOffset;
@@ -759,8 +800,6 @@
         header.classList.remove('bg-slate-900/95', 'shadow-lg', 'shadow-black/10');
         header.classList.add('bg-slate-900/80');
       }
-      
-      lastScroll = currentScroll;
     });
     
     // ============================================
@@ -837,16 +876,14 @@
       entries.forEach(entry => {
         if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
           entry.target.classList.add('counted');
-          const value = parseInt(entry.target.textContent);
+          const value = parseInt(entry.target.getAttribute('data-target'));
           animateCounter(entry.target, value);
         }
       });
     }, { threshold: 0.5 });
     
-    document.querySelectorAll('.text-2xl.sm\\:text-3xl.font-bold').forEach(stat => {
-      if (stat.textContent.includes('+')) {
+    document.querySelectorAll('.text-Counter').forEach(stat => {
         statsObserver.observe(stat);
-      }
     });
   </script>
 
